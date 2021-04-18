@@ -11,7 +11,7 @@ def model(X_train, #Training Data - the POD modes of flow solutions
           layers_dims, # Number of layers
           learning_rate, # Learning rate for the optimizer
           num_iter, # Number of gradient descent iterations
-          lambd,
+          lambd, # Some variable used for regularising the L2Norm cost function
           print_cost # Boolean for returning the cost function value after training):
     
     with tf.device('/device:GPU:0'):
