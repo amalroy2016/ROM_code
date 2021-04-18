@@ -69,6 +69,7 @@ if (opt == 1):
     for j in range(1,layers_dims.shape[0]-1):
       layers_dims[j] = int(random.uniform(n_hidden_min,n_hidden_max)) # Hidden layers
       
+    # Now test the obtained random model configuration for efficacy
     system_identification(X_train,Y_train,layers_dims,lambd,learning_rate,num_iter,h,i,nt_s) # Regression step via DNN
 
   print ('DNN Regression complete!')
@@ -111,6 +112,7 @@ if (opt == 2):
   def model(X_train,Y_train,layers_dims,learning_rate,num_iter,lambd,print_cost):
       
       with tf.device('/device:GPU:0'):
+        
         tf.reset_default_graph() # to be able to rerun the model without overwriting tf variables
         (n_x, m) = X_train.shape # Number of features and number of training examples
         n_y = Y_train.shape[0] # Number of classes
