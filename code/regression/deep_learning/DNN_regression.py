@@ -11,15 +11,15 @@ print ('Computing DNN Regression')
 
 ### Inputs ###
 # Load inputs file
-with open('./data/inputs.inp') as f:
+with open('./data/inputs.inp') as f: # opens file temporarily for reading 
     inputs = f.read()
 
 # Split it into lines
-inputs = inputs.splitlines()
+inputs = inputs.splitlines() # splitting file into seperate list of lines
 
 # Find where POD INPUTS key word is
 for i,lines in enumerate(inputs):
-  if lines=='*DNN INPUTS*': break
+  if lines=='*DNN INPUTS*': break # Find the line that says DNN INPUTS
 
 # Remove all unwanted content
 inputs = [line.replace(' ','').split('!')[0] for line in inputs[i+1:] if line!= '']
