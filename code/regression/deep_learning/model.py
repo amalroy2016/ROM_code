@@ -6,7 +6,13 @@ from init_params import init_params
 from forward_propagation import forward_propagation
 from compute_cost import compute_cost
 
-def model(X_train,Y_train,layers_dims,learning_rate,num_iter,lambd,print_cost):
+def model(X_train, #Training Data - the POD modes of flow solutions
+          Y_train, #Training data - the associated gradients
+          layers_dims, # Number of layers
+          learning_rate, # Learning rate for the optimizer
+          num_iter, # Number of gradient descent iterations
+          lambd,
+          print_cost # Boolean for returning the cost function value after training):
     
     with tf.device('/device:GPU:0'):
       tf.reset_default_graph() # to be able to rerun the model without overwriting tf variables
